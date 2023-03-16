@@ -1,7 +1,9 @@
 ---
 title: "lab1"
-output: html_document
 date: "2023-03-14"
+output:
+  md_document:
+    variant: markdown_github
 ---
 
 ```{r setup, include=FALSE}
