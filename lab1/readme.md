@@ -11,31 +11,37 @@ knitr::opts_chunk$set(echo = TRUE)
 ## R Markdown
 
 Версия ядра
+
 ```{bash}
 uname -r
 ```
 
 Все сведения о ядре
+
 ```{bash}
 uname -a
 ```
 
 release info
+
 ```{bash}
 lsb_release -a
 ```
 
 release info
+
 ```{bash}
 cat /etc/*release*
 ```
+
 Модель процессора
 ```{bash}
 cat /proc/cpuinfo | grep "model name"
 ```
-Последние 30 строк журнала journalctl
+
+Последние 30 строк кольцевого буфера ядра
 ```{bash}
-journalctl -q -b | tail -n 30
+dmesg | tail -n 30
 ```
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
