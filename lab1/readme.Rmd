@@ -1,9 +1,7 @@
 ---
 title: "lab1"
 date: "2023-03-14"
-output:
-  md_document:
-    variant: markdown_github
+output: md_document
 ---
 
 ```{r setup, include=FALSE}
@@ -37,11 +35,13 @@ cat /etc/*release*
 ```
 
 Модель процессора
+
 ```{bash}
 cat /proc/cpuinfo | grep "model name"
 ```
 
 Последние 30 строк кольцевого буфера ядра
+
 ```{bash}
 dmesg | tail -n 30
 ```
