@@ -1,9 +1,7 @@
 ---
 title: "Untitled"
-format: html
-editor: visual
-jupyter: python3
 output: md_document
+date: "2023-03-21"
 ---
 
 ## Quarto
@@ -43,11 +41,3 @@ cat /etc/*release*
 ```{bash}
 cat /proc/cpuinfo | grep "model name"
 ```
-
-Последние 30 строк кольцевого буфера ядра
-
-```{bash}
-dmesg | tail -n 30
-```
-
-The `echo: false` option disables the printing of code (only output is displayed).
