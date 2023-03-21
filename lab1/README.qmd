@@ -1,20 +1,12 @@
 ---
 title: "Untitled"
-format: markdown_github
-editor: visual
-jupyter: python3
-output:
-  md_document:
-    variant: markdown_github
+format:
+  md:
+    output-file: readme.md
+editor_options:  
+  chunk_output_type: inline
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
 
 Версия ядра
 
@@ -52,4 +44,6 @@ cat /proc/cpuinfo | grep "model name"
 dmesg | tail -n 30
 ```
 
+```{r setup, include=TRUE}
+```
 The `echo: false` option disables the printing of code (only output is displayed).
