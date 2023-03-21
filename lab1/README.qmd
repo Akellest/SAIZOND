@@ -10,25 +10,25 @@ editor_options:
 # Лабораторная работа №1
 ## Запуск скриптов через RStudio
 
-###Версия ядра
+### Версия ядра
 
 ```{bash}
 uname -r
 ```
 
-###Все сведения о ядре
+### Все сведения о ядре
 
 ```{bash}
 uname -a
 ```
 
-###release info
+### release info
 
 ```{bash}
 lsb_release -a
 ```
 
-###release info
+### release info
 
 ```{bash}
 cat /etc/*release*
@@ -49,4 +49,4 @@ dmesg | tail -n 30
 ```{r setup, include=TRUE}
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+

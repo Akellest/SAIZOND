@@ -5,7 +5,7 @@ Lab_1
 
 ## Запуск скриптов через RStudio
 
-###Версия ядра
+### Версия ядра
 
 ``` bash
 uname -r
@@ -13,7 +13,7 @@ uname -r
 
     4.4.0-19041-Microsoft
 
-###Все сведения о ядре
+### Все сведения о ядре
 
 ``` bash
 uname -a
@@ -21,7 +21,7 @@ uname -a
 
     Linux ADMIN-PC 4.4.0-19041-Microsoft #2311-Microsoft Tue Nov 08 17:09:00 PST 2022 x86_64 x86_64 x86_64 GNU/Linux
 
-###release info
+### release info
 
 ``` bash
 lsb_release -a
@@ -33,7 +33,7 @@ lsb_release -a
     Release:    22.04
     Codename:   jammy
 
-###release info
+### release info
 
 ``` bash
 cat /etc/*release*
@@ -81,11 +81,8 @@ cat /proc/cpuinfo | grep "model name"
 dmesg | tail -n 30
 ```
 
-    [    0.008880]  Microsoft 4.4.0-19041.2311-Microsoft 4.4.35
-    [    0.059140] <3>init: (1) ERROR: ConfigInitializeCommon:665: Failed to mount /usr/lib/wsl/drive
-    [    0.059144] : 19
-    [    0.059208] <3>init: (1) ERROR: ConfigInitializeCommon:665: Failed to mount /usr/lib/wsl/lib
-    [    0.059211] 19
-
-The `echo: false` option disables the printing of code (only output is
-displayed).
+    [    0.008912]  Microsoft 4.4.0-19041.2311-Microsoft 4.4.35
+    [    0.058089] <3>init: (1) ERROR: ConfigInitializeCommon:665: Failed to mount /usr/lib/wsl/drive
+    [    0.058092] : 19
+    [    0.058156] <3>init: (1) ERROR: ConfigInitializeCommon:665: Failed to mount /usr/lib/wsl/lib
+    [    0.058159] 19
