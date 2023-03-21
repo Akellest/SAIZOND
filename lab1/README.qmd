@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "Lab_1"
 format:
   md:
     output-file: readme.md
@@ -7,38 +7,40 @@ editor_options:
   chunk_output_type: inline
 ---
 
+#Лабораторная работа №1
+##Запуск скриптов через RStudio
 
-Версия ядра
+###Версия ядра
 
 ```{bash}
 uname -r
 ```
 
-Все сведения о ядре
+###Все сведения о ядре
 
 ```{bash}
 uname -a
 ```
 
-release info
+###release info
 
 ```{bash}
 lsb_release -a
 ```
 
-release info
+###release info
 
 ```{bash}
 cat /etc/*release*
 ```
 
-Модель процессора
+###Модель процессора
 
 ```{bash}
 cat /proc/cpuinfo | grep "model name"
 ```
 
-Последние 30 строк кольцевого буфера ядра
+###Последние 30 строк кольцевого буфера ядра
 
 ```{bash}
 dmesg | tail -n 30
@@ -46,4 +48,5 @@ dmesg | tail -n 30
 
 ```{r setup, include=TRUE}
 ```
+
 The `echo: false` option disables the printing of code (only output is displayed).

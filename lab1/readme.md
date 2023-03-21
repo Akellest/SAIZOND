@@ -1,7 +1,9 @@
-Untitled
+Lab_1
 ================
 
-Версия ядра
+#Лабораторная работа №1 ##Запуск скриптов через RStudio
+
+###Версия ядра
 
 ``` bash
 uname -r
@@ -9,7 +11,7 @@ uname -r
 
     4.4.0-19041-Microsoft
 
-Все сведения о ядре
+###Все сведения о ядре
 
 ``` bash
 uname -a
@@ -17,7 +19,7 @@ uname -a
 
     Linux ADMIN-PC 4.4.0-19041-Microsoft #2311-Microsoft Tue Nov 08 17:09:00 PST 2022 x86_64 x86_64 x86_64 GNU/Linux
 
-release info
+###release info
 
 ``` bash
 lsb_release -a
@@ -29,7 +31,7 @@ lsb_release -a
     Release:    22.04
     Codename:   jammy
 
-release info
+###release info
 
 ``` bash
 cat /etc/*release*
@@ -52,7 +54,7 @@ cat /etc/*release*
     PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
     UBUNTU_CODENAME=jammy
 
-Модель процессора
+###Модель процессора
 
 ``` bash
 cat /proc/cpuinfo | grep "model name"
@@ -71,17 +73,17 @@ cat /proc/cpuinfo | grep "model name"
     model name  : AMD Ryzen 5 5600X 6-Core Processor             
     model name  : AMD Ryzen 5 5600X 6-Core Processor             
 
-Последние 30 строк кольцевого буфера ядра
+###Последние 30 строк кольцевого буфера ядра
 
 ``` bash
 dmesg | tail -n 30
 ```
 
-    [    0.009118]  Microsoft 4.4.0-19041.2311-Microsoft 4.4.35
-    [    0.067528] <3>init: (1) ERROR: ConfigInitializeCommon:665: Failed to mount /usr/lib/wsl/drive
-    [    0.067532] : 19
-    [    0.067596] <3>init: (1) ERROR: ConfigInitializeCommon:665: Failed to mount /usr/lib/wsl/lib
-    [    0.067598] 19
+    [    0.008982]  Microsoft 4.4.0-19041.2311-Microsoft 4.4.35
+    [    0.062326] <3>init: (1) ERROR: ConfigInitializeCommon:665: Failed to mount /usr/lib/wsl/drive
+    [    0.062330] : 19
+    [    0.062394] <3>init: (1) ERROR: ConfigInitializeCommon:665: Failed to mount /usr/lib/wsl/lib
+    [    0.062397] 19
 
 The `echo: false` option disables the printing of code (only output is
 displayed).
