@@ -8,10 +8,10 @@
 
 ## Исходные данные
 
-Windows 10
-Docker для Zeek
-Google Colab для Python
-RStudio
+- Windows 10
+- Docker для Zeek
+- Google Colab для Python
+- RStudio
 
 ## План
 
