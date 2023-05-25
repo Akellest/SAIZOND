@@ -29,7 +29,8 @@
 
 ### 2. Структура компании
 
-[!image....]
+![](images/template_png.png)
+![alt text](blob:https://www.list-org.com/d1de148a-eded-4d6c-a95c-6c9a6fada450)
 
 ### 3. Основные направления деятельности компании
 
