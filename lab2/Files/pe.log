@@ -1,0 +1,12 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	pe
+#open	2023-05-25-21-16-11
+#fields	ts	id	machine	compile_ts	os	subsystem	is_exe	is_64bit	uses_aslr	uses_dep	uses_code_integrity	uses_seh	has_import_table	has_export_table	has_cert_table	has_debug_data	section_names
+#types	time	string	string	time	string	string	bool	bool	bool	bool	bool	bool	bool	bool	bool	bool	vector[string]
+1327980103.737868	F3DcZX1vXZHKUHxs49	I386	1327928122.000000	Windows 2000	WINDOWS_GUI	T	F	F	F	F	T	T	F	T	F	.text,.data,.text2,.text3,.rsrc,.reloc
+1327980104.257564	FpPlRm28d4p3rjRyN5	I386	1327931734.000000	Windows 2000	WINDOWS_GUI	T	F	F	F	F	T	T	F	T	F	.text,.data,.text2,.text3,.rsrc,.reloc
+1327980465.287860	FsqVOIXkk3c9J3Va1	I386	1327978508.000000	Windows 2000	WINDOWS_GUI	T	F	F	F	F	T	T	F	T	F	.text,.data,.text2,.text3,.rsrc,.reloc
+#close	2023-05-25-21-16-15
