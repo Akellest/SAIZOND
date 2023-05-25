@@ -32,13 +32,15 @@ RStudio
 zeek -C -r traffic.pcap
 ```
 
+Все полученные файлы лежат в директории <i>Files</i>
+
 3. Были найдены несколько файлов и соединены в один списки hosts
 
 Источник: https://github.com/StevenBlack/hosts
 
 4. С помощью программы на Python был отфильтрован файл dns.log в читаемый вид (Рисунок 1) с использованием кода:
 
-![](/images/logs.png)
+![](images/logs.png)
 
 Рисунок 1 - Сравнение версий файлов
 
@@ -70,7 +72,7 @@ dns_file.close()
 hosts_file.close()
 ```
 
-![](/images/result.png)
+![](images/result.png)
 
 Рисунок 2 - Результат программы
 
