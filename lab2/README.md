@@ -44,6 +44,7 @@ zeek -C -r traffic.pcap
 
 5. Был найден процент нежелательного трафика путем сравнения строк файлов dns.log и hosts.txt (Рисунок 2)
 
+```
 dns_file = open('dns1.txt', 'r')
 hosts_file = open('hosts.txt', 'r')
 
@@ -67,6 +68,7 @@ print("Процент нежелательного трафика: " + str(perce
 
 dns_file.close()
 hosts_file.close()
+```
 
 []!(/images/result.png)
 
