@@ -15,7 +15,7 @@
 
 ## Ход работы
 
-Был создан сайт:
+С помощью [документации](https://quarto.org/docs/publishing/github-pages.html) был создан сайт:
 
 https://akellest.github.io/website/
 
