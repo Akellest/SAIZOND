@@ -17,7 +17,7 @@
 
 Был создан сайт:
 
-[Website](https://akellest.github.io/website/)
+https://akellest.github.io/website/
 
 ## Вывод
 
