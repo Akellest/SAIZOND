@@ -7,84 +7,83 @@ editor_options:
   chunk_output_type: inline
 ---
 
-# Лабораторная работа №2. Сбор и аналитическая обработка информации о сетевом трафике
+## Цель работы
 
-## Цель
+1. Освоить базовые подходы процессов Threat Intelligence
+2. Освоить современные инструменты развертывания контейнирозованных приложений
+3. Получить навыки поиска информации об угрозах ИБ
 
-- Развить практические навыки использования современного стека инструментов сбора и аналитической обработки информации о сетвом трафике
-- Освоить базовые подходы блокировки нежелательного сетевого трафика
-- Закрепить знания о современных сетевых протоколах прикладного уровня
+## Задание
+
+1. Развернуть систему threat intelligence – Open CTI https://www.opensourceagenda.com/projects/opencti
+2. Настроить дополнительные источники информации об угрозах ИБ (один или несколько дополнительных фидов) – например, https://github.com/openctibr/threatFeeds
+3. Проверить наличие индикаторов компрометации в собранном в ПР №3 наборе данных (метаданные
+траффика).
 
 ## Исходные данные
 
 - Windows 10
-- Docker для Zeek
-- Google Colab для Python
+- Docker
+- ElasticSearch
+- WSL2 (Ubuntu 20.04)
 - RStudio
-
-## План
-
-1. Собрать сетевой трафик с помощью WireShark
-2. Проанализировать трафик с помощью Zeek
-3. Найти информацию о нежелательном трафике
-4. Проверить соотношение допустимого и недопустимого трафика
+- Google Colab
 
 ## Ход работы
 
-<b>1. Был собран трафик с помощью WireShark</b>
-
-(Файл: traffic.pcap)
-
-<b>2. Была получена информация о собранном трафике путем использования команды в Docker</b>
-
+1. Изменяем файлы <i>.env</i> и <i>docker-compose.yml</i> из прошлой ЛР
+2. Запускаем контейнер с использованием заново настроенных файлов
 ```
-zeek -C -r traffic.pcap
+docker-compose up -d
 ```
+3. Входим в аккаунт на странице http://localhost:8080/ с данными из файла <i>.env</i>
 
-Все полученные файлы лежат в директории <i>Files</i>
+EMAIL: admin@opencti.io
 
-<b>3. Были найдены несколько файлов и соединены в один списки hosts</b>
+PASSWORD: adminopencti
 
-Источник: https://github.com/StevenBlack/hosts
-
-<b>4. С помощью программы на Python был отфильтрован файл dns.log в читаемый вид (Рисунок 1) с использованием кода:</b>
-
-![](images/logs.png)
-
-Рисунок 1 - Сравнение версий файлов
-
-<b>5. Был найден процент нежелательного трафика путем сравнения строк файлов dns1.log и hosts.txt (Рисунок 2)</b>
-
+4. Открываем Google Colab и выполняем следующий код для файла <i>hosts.txt</i> из ЛР №2
+  
 ```
-dns_file = open('dns1.txt', 'r')
+!pip install stix2
+
+import json
+import stix2
+
 hosts_file = open('hosts.txt', 'r')
-
-dns_lines = dns_file.readlines()
-dns_list = []
-for line in dns_lines:
-    line = line.strip()
-    if line and line != "-":
-        dns_list.append(line)
-
-hosts_lines = hosts_file.readlines()
-hosts_list = []
-for line in hosts_lines:
-    line = line.strip()
-    if line and line != "-" and line != "#":
-        hosts_list.append(line)
-
-
-percentage = round(len(set(dns_list).intersection(set(hosts_list))) / len(dns_list) * 100, 2)
-print("Процент нежелательного трафика: " + str(percentage) + "%")
-
-dns_file.close()
+domains = hosts_file.read().splitlines()
 hosts_file.close()
+
+indicators = []
+for domain in domains:
+    domain = domain.strip()
+    if not domain:
+        continue
+    try:
+        indicator = stix2.Indicator(
+            name=f"Malware: {domain}",
+            pattern="[domain-name:value = '{}']".format(domain),
+            pattern_type="stix",
+            labels=['malware'])
+        indicators.append(indicator)
+    except stix2.exceptions.InvalidValueError:
+        print(f"Invalid domain: {domain}")
+        continue
+
+bundle = stix2.Bundle(objects=indicators)
+
+output_file = open('newHost.json', 'w')
+json.dump(bundle.serialize(), output_file, indent=4)
+output_file.close()
 ```
 
-![](images/result.png)
+5. Загружаем полученный файл <i>newHosts.json</i> из ЛР №2 (Data import and analyst workbenches)
+5. Делаем файл доступным для просмотра (Validate this workbench)
+6. Переходим во вкладку Observations - Indicators и смотрим результат
 
-Рисунок 2 - Результат программы
+![](images/indicators.png)
+Рисунок 1 - Нежелательные хосты
 
 ## Вывод
 
-Поставленная задача была выполнена с использованием инструмента Zeek, Docker и Python. В процессе решения задачи был приобрел опыт работы с инструментами для сбора информации о сетевом трафике и аналитической обработки этих данных.
+После выполнения работы в купе с полученными навыками из лабораторной работы №2 были приобрены навыки по развертыванию и настройке платформы OpenCTI для обработки информации о киберугрозах, а таке по сбору, анализу и визуализации различных видов угрозной информации, включая индикаторы
