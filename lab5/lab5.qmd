@@ -1,5 +1,5 @@
 ---
-title: "Лабораторная работа №4. Работа с FreePlane"
+title: "Лабораторная работа №5. Работа с FreePlane"
 format:   
   md:
     output-file: README.md
