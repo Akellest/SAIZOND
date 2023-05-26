@@ -55,10 +55,10 @@ docker-compose up -d
 
 5. Просматриваем filebeat и packetbeat при помощи инструментария Elastic (рисунки 1 и 2)
 
-![](/images/dataview_filebeat)
+![](images/dataview_filebeat)
 Рисунок 1 - Просмотр filebeat
 
-![](/images/dataview_packetbeat)
+![](images/dataview_packetbeat)
 Рисунок 2 - Просмотр packetbeat
 
 ## Ход работы
