@@ -43,23 +43,28 @@ sysctl -w vm.max_map_count=262144
 docker run --name es01 --net elastic -p 9200:9200 -it docker.elastic.co/elasticsearch/elasticsearch:8.8.0
 ```
 
-2. Настраиваем файлы конфигурации: docker-compose.yml, filebeat.yml, packetbit.yml, .env. Все файлы лежат в директории <i>Files</i>, кроме .env
-
-.env:
-```
-ELASTIC_PASSWORD=username
-KIBANA_PASSWORD=username
-STACK_VERSION=8.7.0
-CLUSTER_NAME=docker-cluster
-LICENSE=basic
-ES_PORT=9200
-KIBANA_PORT=5601
-MEM_LIMIT=1073741824
-```
+2. Настраиваем файлы конфигурации: docker-compose.yml, filebeat.yml, packetbit.yml, .env. Все файлы лежат в директории <i>Files</i>
 
 3. Запускаем контейнер с использованием настроенных файлов
+
 ```
 docker-compose up -d
 ```
 
-4. 
+4. С помощью пароля, установленного в <i>.env</i> входим в пользователя <i>elastic</i> по адресу http://localhost:5601/
+
+5. Просматриваем filebeat и packetbeat при помощи инструментария Elastic (рисунки 1 и 2)
+
+![](/images/dataview_filebeat)
+Рисунок 1 - Просмотр filebeat
+
+![](/images/dataview_packetbeat)
+Рисунок 2 - Просмотр packetbeat
+
+## Ход работы
+
+В ходе выполнения работы была изучена и развернута система мониторинга на базе ELK Stack, с использованием Opensearch в качестве поискового и аналитического движка. Были освоены следующие навыки:
+
+- Установка и настройка Opensearch
+- Установка и настройка Kibana
+- Сбор и отправка данных в Opensearch
